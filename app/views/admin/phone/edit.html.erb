@@ -1,0 +1,7 @@
+<%= form_tag "/admin/phone/update?id=#{@phone.id}", :multipart => true do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Actualizar teléfono' %>
+<% end %>
+
+<%= link_to 'Mostrar', :action => 'show', :id => @phone %> |
+<%= link_to 'Volver', :action => 'index' %>

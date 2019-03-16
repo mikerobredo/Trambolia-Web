@@ -1,0 +1,26 @@
+<dl>
+  <dt>Modelo</dt>
+  <dd><%= @phone.title %></dd>
+  <dt>Fabricante</dt>
+  <dd><%= @phone.manufacturer.name %></dd>
+  <dt>Fabricado el</dt>
+  <dd><%= @phone.manufactured_at.strftime("%d/%m/%Y at %I:%M%p") %></dd>
+  <dt>Proveedor</dt>
+  <dd><%= @phone.supplier_names %></dd>
+  <dt>Imei</dt>
+  <dd><%= @phone.imei %></dd>
+  <dt>Descripción</dt>
+  <%= RedCloth.new(@phone.blurb).to_html.html_safe if @phone.blurb %>
+  <dt>Precio</dt>
+  <dd><%= @phone.price %></dd>
+  <dt>Imagen</dt>
+  <% if @phone.cover_image.exists? then %>
+    <dd><%= image_tag @phone.cover_image.url %></dd>
+  <% else %>
+    <dd><%= image_tag '/missing.png' %></dd>
+    <p> No hay imagen adjunta. Por favor suba una. </p>
+  <% end %>
+</dl>
+
+<%= link_to 'Editar', :action => 'edit', :id => @phone %> |
+<%= link_to 'Volver', :action => 'index' %>

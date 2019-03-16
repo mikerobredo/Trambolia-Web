@@ -1,0 +1,19 @@
+ development:
+  adapter: mysql2
+  encoding: utf8
+  #database: c9
+  database: eshop2_development
+  #username: <%=ENV['C9_USER']%>
+  username: eshop
+  password: eshop
+  host: <%=ENV['IP']%>
+ 
+ test:
+  adapter: mysql2
+  encoding: utf8
+  #database: c9
+  database: eshop2_test
+  #username: <%=ENV['C9_USER']%>
+  username: eshop
+  password: eshop
+  host: <%=ENV['IP']%>

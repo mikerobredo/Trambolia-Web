@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <th><a href="?sort_by=manufacturer_id">Fabricante</a></th>
+    <th><a href="?sort_by=title">Modelo</a></th>
+    <th><a href="?sort_by=imei">IMEI</a></th>
+    <th colspan="3"></th>
+  </tr>
+
+<% @phones.each do |phone| %>
+  <tr>
+    <td><%= h phone.manufacturer.name %></td>
+    <td><%= h phone.title %></td>
+    <td><%= h phone.imei %></td>
+    <td><%= link_to 'Mostrar', :action => 'show', :id => phone %></td>
+    <td><%= link_to 'Editar', :action => 'edit', :id => phone  %></td>
+    <td><%= button_to 'Borrar', { :action => 'destroy', :id => phone },
+                      data: { confirm: "¿Estás seguro de eliminar el teléfono #{phone.title}?" } %></td>
+  </tr>
+<% end %>
+</table>
+<br/>
+<%= will_paginate @phones, :page_links => false, :link_separator => ' | ',
+                          :previous_label => 'Página anterior', :next_label => 'Siguiente página' %>
+<p><%= link_to 'Añadir nuevo teléfono', :action => 'new' %></p>

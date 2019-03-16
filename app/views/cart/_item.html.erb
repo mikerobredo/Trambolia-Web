@@ -1,0 +1,5 @@
+<%= link_to item.phone.title, :action => 'show', :controller => 'catalog', :id => item.phone.id %>
+
+<%= pluralize item.amount, "teléfono", "teléfonos" %>, <%= sprintf "%0.2f €", item.price * item.amount %>
+
+(<%= link_to '<b>-</b>'.html_safe, :controller => 'cart', :action => 'remove', :id => item.phone, :remote => true %>)

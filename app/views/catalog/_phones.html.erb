@@ -1,0 +1,13 @@
+<dl id = 'phones'>
+  <% for phone in @phones %>
+    <dt>
+      <%= link_to phone.title, :action => 'show', :id => phone %>
+      <%= link_to '+', :controller => 'cart', :action => 'add', :id => phone, :remote => true %>
+    </dt>
+    <% for supplier in phone.suppliers %>
+      <dd><%= supplier.last_name %>, <%= supplier.first_name %></dd>
+    <% end %>
+    <dd><%= sprintf("Precio: %.2f €", phone.price) %> </dd>
+    <dd><small>Fabricante: <%= phone.manufacturer.name %></small></dd>
+  <% end %>
+</dl>

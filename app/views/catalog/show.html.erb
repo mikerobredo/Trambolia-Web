@@ -1,0 +1,16 @@
+<h2>by <%=@phone.supplier_names %></h2>
+<% if @phone.cover_image.exists? then %>
+  <dd><%= image_tag @phone.cover_image.url %></dd>
+<% else %>
+  <p>No hay imagen disponible.</p>
+<% end %>
+<dl>
+  <dt>Precio</dt>
+  <dd><%= sprintf("%0.2f", @phone.price) %></dd>
+  <dt>Fabricante</dt>
+  <dd><%= @phone.manufacturer.name %></dd>
+  <dt>Descripción</dt>
+  <%= RedCloth.new(@phone.blurb).to_html.html_safe if @phone.blurb %>
+</dl>
+
+<p><%= link_to 'Volver al catálogo', :action => 'index' %> </p>

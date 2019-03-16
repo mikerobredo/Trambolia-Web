@@ -1,0 +1,6 @@
+<%= form_tag "/admin/phone/create", :multipart => true do %>
+  <%= render :partial => 'form' %>   
+  <%= submit_tag 'Crear teléfono' %>
+<% end %>
+
+<%= link_to 'Volver', :action => 'index' %>
